@@ -390,7 +390,7 @@ class Anime():
         if without_suffix:
             return filename  # 截止至清晰度的文件名, 用于 __get_temp_filename()
 
-        filename = filename + self._settings['customized_video_filename_suffix'] + '.mp4'  # 添加用户后缀及扩展名
+        filename = filename + self._settings['customized_video_filename_suffix'] + '.ts'  # 添加用户后缀及扩展名
         legal_filename = Config.legalize_filename(filename)  # 去除非法字符
         filename = legal_filename
         return filename
@@ -398,7 +398,7 @@ class Anime():
     def __get_temp_filename(self, resolution, temp_suffix):
         filename = self.__get_filename(resolution, without_suffix=True)
         # temp_filename 为临时文件名，下载完成后更名正式文件名
-        temp_filename = filename + self._settings['customized_video_filename_suffix']+'.'+temp_suffix+'.mp4'
+        temp_filename = filename + self._settings['customized_video_filename_suffix']+'.'+temp_suffix+'.ts'
         temp_filename = Config.legalize_filename(temp_filename)
         return temp_filename
 
